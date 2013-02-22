@@ -105,10 +105,12 @@ list(APPEND _nanopb_hdrs pb_decode.h pb_encode.h pb.h)
 foreach(FIL ${_nanopb_srcs})
   find_file(${FIL}__nano_pb_file NAMES ${FIL} PATHS ${NANOPB_SRC_ROOT_FOLDER} ${NANOPB_INCLUDE_DIRS})
   list(APPEND NANOPB_SRCS "${${FIL}__nano_pb_file}")
+  mark_as_advanced(${FIL}__nano_pb_file)
 endforeach()
 
 foreach(FIL ${_nanopb_hdrs})
   find_file(${FIL}__nano_pb_file NAMES ${FIL} PATHS ${NANOPB_INCLUDE_DIRS})
+  mark_as_advanced(${FIL}__nano_pb_file)
   list(APPEND NANOPB_HDRS "${${FIL}__nano_pb_file}")
 endforeach()
 
